@@ -8,7 +8,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -24,6 +23,5 @@ model User {
   created_at DateTime @default(now()) @map("created_at")
   updated_at DateTime @default(now()) @map("updated_at")
 
-  @@map("colaboradores")
+  @@map("user")
 }
-
