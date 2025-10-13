@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -24,4 +18,24 @@ model User {
   updated_at DateTime @default(now()) @map("updated_at")
 
   @@map("user")
+}
+
+model Collaborator {
+  id             Int      @id @default(autoincrement())
+  fullName       String
+  cpf            String   @unique
+  phone          String
+  birthDate      String
+  registration   String   @unique
+  position       String
+  specialty      String
+  admissionDate  String
+  corporateEmail String   @unique
+  password       String
+  accessLevel    String
+  active         Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("collaborator")
 }
