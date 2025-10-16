@@ -1,19 +1,34 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { CollaboratorEntity } from '../../domain/collaborators/entities/collaborator.entity';
 
 export class CreateCollaboratorOutputDto {
+  @ApiProperty()
   id!: string;
+  @ApiProperty()
   fullName!: string;
+  @ApiProperty()
   cpf!: string;
+  @ApiProperty()
   phone!: string;
+  @ApiProperty()
   birthDate!: string;
+  @ApiProperty()
   registration!: string;
+  @ApiProperty()
   position!: string;
+  @ApiProperty()
   specialty!: string;
+  @ApiProperty()
   admissionDate!: string;
+  @ApiProperty()
   corporateEmail!: string;
+  @ApiProperty()
   accessLevel!: string;
+  @ApiProperty()
   active!: boolean;
+  @ApiProperty()
   createdAt!: Date;
+  @ApiProperty()
   updatedAt!: Date;
 
   static toDto(entity: CollaboratorEntity): CreateCollaboratorOutputDto {

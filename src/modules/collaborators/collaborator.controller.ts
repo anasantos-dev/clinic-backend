@@ -5,15 +5,24 @@ import {
   HttpStatus,
   HttpException,
 } from '@nestjs/common';
+
 import { CollaboratorService } from './collaborator.service';
 import { CreateCollaboratorDto } from '../../application/dto/create-collaborator.dto';
 import { CreateCollaboratorOutputDto } from '../../application/dto/create-collaborator-output.dto';
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
+@ApiTags('Collaborators')
 @Controller('collaborators')
 export class CollaboratorController {
   constructor(private readonly collaboratorService: CollaboratorService) {}
 
   @Post()
+  @ApiCreatedResponse({ type: CreateCollaboratorOutputDto })
+  @ApiBadRequestResponse({ description: 'Erro ao criar colaborador' })
   async create(
     @Body() data: CreateCollaboratorDto,
   ): Promise<CreateCollaboratorOutputDto> {
